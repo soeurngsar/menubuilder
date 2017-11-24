@@ -1,0 +1,36 @@
+{
+    "name": "soeurngsar/menubuilder",
+    "description": "drag and drop menu generator like wordpress for laravel 5",
+    "keywords": ["Laravel", "Menu", "Wordpress", "Builder","Builder", "Backpack"],
+    "authors": [
+    	{
+            "name": "Sar Soeurng",
+            "email": "sar.soeurng@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Cristian Garcia",
+            "email": "informacion@cristiangarcia.co",
+            "role" : "Original Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+          "SoeurngSar\\MenuBuilder\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SoeurngSar\\MenuBuilder\\MenuServiceProvider"
+            ],
+            "aliases": {
+                "Menu": "SoeurngSar\\MenuBuilder\\Facades\\Menu"
+            }
+        }
+    }
+}

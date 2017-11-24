@@ -1,0 +1,265 @@
+#hwpwrap #menu-to-edit {
+  margin: 0;
+  padding: .1em 0;
+  list-style-type: none;
+}
+#hwpwrap .menu ul {
+  width: 100%;
+}
+#hwpwrap .menu li {
+  margin-bottom: 0;
+  position: relative;
+}
+#hwpwrap .menu-item-bar {
+  clear: both;
+  line-height: 1.5em;
+  position: relative;
+  margin: 9px 0 0;
+}
+#hwpwrap .menu-item-bar .menu-item-handle {
+  border: 1px solid #dfdfdf;
+  position: relative;
+  padding: 10px 15px;
+  height: auto;
+  min-height: 20px;
+  width: 402px;
+  line-height: 30px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+#hwpwrap .menu-item-bar .menu-item-handle:hover {
+  border-color: #999;
+  background-color: white;
+}
+#hwpwrap #menu-to-edit .menu-item-invalid .menu-item-handle {
+  background: #f6c9cc;
+  border-color: #f1acb1;
+}
+#hwpwrap .no-js .menu-item-edit-active .item-edit {
+  display: none;
+}
+#hwpwrap .js .menu-item-handle {
+  cursor: move;
+}
+#hwpwrap .menu-item-handle .is-submenu {
+  display: none !important;
+}
+#hwpwrap .menu li.deleting .menu-item-handle {
+  background-image: none;
+  background-color: #f66;
+}
+#hwpwrap .menu-item-handle .item-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  display: block;
+  margin-right: 13em;
+}
+#hwpwrap .menu-item-handle .menu-item-title.no-title {
+  color: #999;
+}
+#hwpwrap li.menu-item.ui-sortable-helper dl {
+  margin-top: 0;
+}
+#hwpwrap li.menu-item.ui-sortable-helper .menu-item-transport dl {
+  margin-top: 13px;
+}
+#hwpwrap .menu .sortable-placeholder {
+  height: 35px;
+  width: 410px;
+  margin-top: 13px;
+  border: 1px dashed #999;
+}
+#hwpwrap .menu-item-depth-0 {
+  margin-left: 0;
+}
+#hwpwrap .menu-item-depth-1 {
+  margin-left: 30px;
+}
+#hwpwrap .menu-item-depth-2 {
+  margin-left: 60px;
+}
+#hwpwrap .menu-item-depth-3 {
+  margin-left: 90px;
+}
+#hwpwrap .menu-item-depth-4 {
+  margin-left: 120px;
+}
+#hwpwrap .menu-item-depth-5 {
+  margin-left: 150px;
+}
+#hwpwrap .menu-item-depth-6 {
+  margin-left: 180px;
+}
+#hwpwrap .menu-item-depth-7 {
+  margin-left: 210px;
+}
+#hwpwrap .menu-item-depth-8 {
+  margin-left: 240px;
+}
+#hwpwrap .menu-item-depth-9 {
+  margin-left: 270px;
+}
+#hwpwrap .menu-item-depth-10 {
+  margin-left: 300px;
+}
+#hwpwrap .menu-item-depth-11 {
+  margin-left: 330px;
+}
+#hwpwrap .menu-item-depth-0 .menu-item-transport {
+  margin-left: 0;
+}
+#hwpwrap .menu-item-depth-1 .menu-item-transport {
+  margin-left: -30px;
+}
+#hwpwrap .menu-item-depth-2 .menu-item-transport {
+  margin-left: -60px;
+}
+#hwpwrap .menu-item-depth-3 .menu-item-transport {
+  margin-left: -90px;
+}
+#hwpwrap .menu-item-depth-4 .menu-item-transport {
+  margin-left: -120px;
+}
+#hwpwrap .menu-item-depth-5 .menu-item-transport {
+  margin-left: -150px;
+}
+#hwpwrap .menu-item-depth-6 .menu-item-transport {
+  margin-left: -180px;
+}
+#hwpwrap .menu-item-depth-7 .menu-item-transport {
+  margin-left: -210px;
+}
+#hwpwrap .menu-item-depth-8 .menu-item-transport {
+  margin-left: -240px;
+}
+#hwpwrap .menu-item-depth-9 .menu-item-transport {
+  margin-left: -270px;
+}
+#hwpwrap .menu-item-depth-10 .menu-item-transport {
+  margin-left: -300px;
+}
+#hwpwrap .menu-item-depth-11 .menu-item-transport {
+  margin-left: -330px;
+}
+#hwpwrap body.menu-max-depth-0 {
+  min-width: 950px !important;
+}
+#hwpwrap body.menu-max-depth-1 {
+  min-width: 980px !important;
+}
+#hwpwrap body.menu-max-depth-2 {
+  min-width: 1010px !important;
+}
+#hwpwrap body.menu-max-depth-3 {
+  min-width: 1040px !important;
+}
+#hwpwrap body.menu-max-depth-4 {
+  min-width: 1070px !important;
+}
+#hwpwrap body.menu-max-depth-5 {
+  min-width: 1100px !important;
+}
+#hwpwrap body.menu-max-depth-6 {
+  min-width: 1130px !important;
+}
+#hwpwrap body.menu-max-depth-7 {
+  min-width: 1160px !important;
+}
+#hwpwrap body.menu-max-depth-8 {
+  min-width: 1190px !important;
+}
+#hwpwrap body.menu-max-depth-9 {
+  min-width: 1220px !important;
+}
+#hwpwrap body.menu-max-depth-10 {
+  min-width: 1250px !important;
+}
+#hwpwrap body.menu-max-depth-11 {
+  min-width: 1280px !important;
+}
+#hwpwrap .item-type {
+  color: #777;
+  font-size: 12px;
+  padding: 12px 10px;
+  line-height: 18px;
+  display: block;
+}
+#hwpwrap .item-controls {
+  font-size: 12px;
+  position: absolute;
+  right: 20px;
+  top: -1px;
+}
+#hwpwrap .item-controls a {
+  text-decoration: none;
+}
+#hwpwrap .item-controls a:hover {
+  cursor: pointer;
+}
+#hwpwrap .item-controls .item-order {
+  padding-right: 10px;
+}
+#hwpwrap .nav-menus-php .item-edit {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  display: block;
+  width: 30px;
+  height: 40px;
+  margin-right: 0 !important;
+  text-indent: 100%;
+  outline: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#hwpwrap .accordion-section-title:after, #hwpwrap .control-section .accordion-section-title:after, #hwpwrap .nav-menus-php .item-edit:before, #hwpwrap .widget-top a.widget-action:after {
+  right: 0;
+  content: "\f0dd";
+  border: none;
+  background: 0 0;
+  font: 400 20px/1 FontAwesome;
+  speak: none;
+  display: block;
+  padding: 0;
+  text-indent: 0;
+  text-align: center;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none !important;
+}
+#hwpwrap .accordion-section-title:after, #hwpwrap .handlediv, #hwpwrap .item-edit, #hwpwrap .sidebar-name-arrow, #hwpwrap .widget-action {
+  color: #aaa;
+}
+#hwpwrap .accordion-section-title:hover:after, #hwpwrap .handlediv:hover, #hwpwrap .item-edit:hover, #hwpwrap .sidebar-name:hover .sidebar-name-arrow, #hwpwrap .widget-action:hover {
+  color: #777;
+}
+
+#hwpwrap .nav-menus-php .item-edit:before {
+  line-height: 2.1;
+}
+#hwpwrap .menu-instructions-inactive {
+  display: none;
+}
+#hwpwrap .menu-item-settings {
+  display: block;
+  width: 402px;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+/*#hwpwrap .menu-item-settings .field-move a {
+  display: none;
+  margin: 0 2px;
+}*/
+#hwpwrap .menu-item-edit-active .menu-item-settings {
+  display: block;
+}
+#hwpwrap .menu-item-edit-inactive .menu-item-settings {
+  display: none;
+}
