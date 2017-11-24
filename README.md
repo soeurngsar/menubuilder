@@ -1,7 +1,7 @@
 # Laravel Drag and Drop menu editor like wordpress
 
 forked from https://github.com/lordmacu/wmenu
-![Laravel drag and drop menu](https://s28.postimg.org/pfxhnqcgd/screenshot_20170811_150313.png)
+![Laravel drag and drop menu for backpack](screenshot/menubuilder.png?raw=true)
 ### Note
 **This package is work perfectly with Backpack only**
 ### Installation
