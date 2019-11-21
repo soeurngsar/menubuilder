@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.*"
+        "illuminate/support": "6.*"
     },
     "autoload": {
         "psr-4": {
@@ -29,7 +29,7 @@
                 "SoeurngSar\\MenuBuilder\\MenuServiceProvider"
             ],
             "aliases": {
-                "Menu": "SoeurngSar\\MenuBuilder\\Facades\\Menu"
+                "Menu": "SoeurngSar\\MenuBuilder\\app\\Facades\\Menu"
             }
         }
     }

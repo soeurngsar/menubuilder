@@ -84,7 +84,7 @@ class WMenu
 
     public static function getByName($name)
     {
-        $menu_id = Menus::byName($name)->id;
+        $menu_id = optional(Menus::byName($name))->id;
         return self::get($menu_id);
     }
 
