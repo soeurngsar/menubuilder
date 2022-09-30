@@ -1,7 +1,7 @@
 {
     "name": "soeurngsar/menubuilder",
-    "description": "drag and drop menu generator like wordpress for laravel 5",
-    "keywords": ["Laravel", "Menu", "Wordpress", "Builder","Builder", "Backpack"],
+    "description": "drag and drop menu generator like wordpress for laravel backpack",
+    "keywords": ["Laravel", "Menu", "Drag Drop", "Builder","Builder", "Backpack"],
     "authors": [
     	{
             "name": "Sar Soeurng",
@@ -15,8 +15,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "6.*"
+        "php": "^7.3",
+        "backpack/crud": "4.1.*"
     },
     "autoload": {
         "psr-4": {

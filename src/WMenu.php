@@ -2,55 +2,64 @@
 
 namespace SoeurngSar\MenuBuilder;
 
-use App\Http\Requests;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use SoeurngSar\MenuBuilder\app\Models\Menus;
 use SoeurngSar\MenuBuilder\app\Models\MenuItems;
 
 class WMenu
 {
-
     public function render()
     {
         $menu = new Menus();
-        $menuitems = new MenuItems();
-        $menulist = $menu->select(['id', 'name'])->get();
-        $menulist = $menulist->pluck('name', 'id')->prepend('Select menu', 0)->all();
+        $menuItems = new MenuItems();
+        $menuList = $menu->select(['id', 'name'])->get();
+        $menuList = $menuList->pluck('name', 'id')->prepend('Select menu', 0)->all();
 
         if ((request()->has("action") && empty(request()->input("menu"))) || request()->input("menu") == '0') {
-            return view('vendor.sarmenu.menu-html')->with("menulist", $menulist);
+            return view('wmenu::menu-html')->with("menulist", $menuList);
         } else {
+            $menu = Menus::find(request()->get("menu"));
+            $menus = $menuItems->getall(request()->input("menu"));
 
-            $menu = Menus::find(request()->input("menu"));
-            $menus = $menuitems->getall(request()->input("menu"));
+            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menuList];
 
-            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist];
-            return view('vendor.sarmenu.menu-html', $data);
+            return view('wmenu::menu-html', $data);
         }
-
     }
 
     public function scripts()
     {
-        return view('vendor.sarmenu.scripts');
+        return view('wmenu::scripts');
     }
 
-    public function select($name = "menu", $menulist = array(), $cssClass="form-control")
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function select($name = "menu", $menuList = array(), $cssClass="form-control") : string
     {
         $html = '<select name="' . $name . '" class="'.$cssClass.'" id="menu-dropdown">';
+        $html .= '<option value="0">' . trans('wmenu::menu.select'). '...</option>';
 
-        foreach ($menulist as $key => $val) {
-            $active = '';
-            if (request()->input('menu') == $val->id) {
-                $active = 'selected="selected"';
+        foreach ($menuList as $key => $menu) {
+            $selected = '';
+
+            if ((int)request()->get('menu') === $menu->id) {
+                $selected = 'selected="selected"';
             }
-            $html .= '<option ' . $active . ' value="' . $val->id . '">' . $val->name . '</option>';
+
+            $html .= '<option ' . $selected . ' value="' . $menu->id . '">' . $menu->name . '</option>';
         }
+
         $html .= '</select>';
+
         return $html;
     }
 
-    public static function renderBootstrapNav($brand = 'Brand', $menu_name, $nav_type = 'navbar-default'){
-      $menu = self::getByName($menu_name);
+    public static function renderBootstrapNav($brand = 'Brand', $menuName = 'Primary', $nav_type = 'navbar-default') : string
+    {
+      $menu = self::getByName($menuName);
 
       $nav =  '<nav class="navbar '.$nav_type.'">
                 <div class="container">
@@ -82,41 +91,38 @@ class WMenu
       return Menus::all();
     }
 
-    public static function getByName($name)
+    public static function getByName($name) : array
     {
-        $menu_id = optional(Menus::byName($name))->id;
-        return self::get($menu_id);
+        $menuId = optional(Menus::byName($name))->id;
+        return self::get($menuId);
     }
 
-    public static function get($menu_id)
+    public static function get($menuId) : array
     {
         $menuItem = new MenuItems;
-        $menu_list = $menuItem->getall($menu_id);
+        $menuList = $menuItem->getall($menuId);
+        $roots = $menuList->where('menu', $menuId)->where('parent', '0');
 
-        $roots = $menu_list->where('menu', $menu_id)->where('parent', '0');
-
-        $items = self::tree($roots, $menu_list);
-        return $items;
+        return self::tree($roots, $menuList);
     }
 
-    private static function tree($items, $all_items)
+    private static function tree($items, $allItems) : array
     {
-        $data_arr = array();
+        $data = array();
         $i = 0;
-        foreach ($items as $item) {
-            $data_arr[$i] = $item->toArray();
-            $find = $all_items->where('parent', $item->id);
 
-            $data_arr[$i]['child'] = array();
+        foreach ($items as $item) {
+            $data[$i] = $item->toArray();
+            $find = $allItems->where('parent', $item->id);
+            $data[$i]['child'] = array();
 
             if ($find->count()) {
-                $data_arr[$i]['child'] = self::tree($find, $all_items);
+                $data[$i]['child'] = self::tree($find, $allItems);
             }
 
             $i++;
         }
 
-        return $data_arr;
+        return $data;
     }
-
 }

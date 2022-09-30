@@ -1,12 +1,19 @@
 <?php
 
-Route::group(['middleware' => config('menu.middleware')], function () {
-    $path = rtrim(config('menu.route_path'));
-    Route::get($path . '/menu-builder', array('uses'=>'\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@index'));
-    Route::post($path . '/addcustommenu', array('as' => 'haddcustommenu', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@addcustommenu'));
-    Route::post($path . '/deleteitemmenu', array('as' => 'hdeleteitemmenu', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@deleteitemmenu'));
-    Route::post($path . '/deletemenug', array('as' => 'hdeletemenug', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@deletemenug'));
-    Route::post($path . '/createnewmenu', array('as' => 'hcreatenewmenu', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@createnewmenu'));
-    Route::post($path . '/generatemenucontrol', array('as' => 'hgeneratemenucontrol', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@generatemenucontrol'));
-    Route::post($path . '/updateitem', array('as' => 'hupdateitem', 'uses' => '\SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController@updateitem'));
+use Illuminate\Support\Facades\Route;
+use SoeurngSar\MenuBuilder\app\Http\Controllers\MenuController;
+
+Route::prefix(config('backpack.base.route_prefix', 'admin'))->middleware(
+    array_merge(
+        (array) config('backpack.base.web_middleware', 'web'),
+        (array) config('backpack.base.middleware_key', 'admin')
+    )
+)->group(function () {
+    Route::get('menu-builder', [MenuController::class, 'index'])->name('menu-builder');
+    Route::post('addcustommenu', [MenuController::class, 'addcustommenu'])->name('haddcustommenu');
+    Route::post('deleteitemmenu', [MenuController::class, 'deleteitemmenu'])->name('hdeleteitemmenu');
+    Route::post('deletemenug', [MenuController::class, 'deletemenug'])->name('hdeletemenug');
+    Route::post('createnewmenu', [MenuController::class, 'createnewmenu'])->name('hcreatenewmenu');
+    Route::post('generatemenucontrol', [MenuController::class, 'generatemenucontrol'])->name('hgeneratemenucontrol');
+    Route::post('updateitem', [MenuController::class, 'updateitem'])->name('hupdateitem');
 });

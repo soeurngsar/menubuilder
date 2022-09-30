@@ -210,7 +210,6 @@ function deletemenu() {
 }
 
 function createnewmenu() {
-
 	if (!!$("#menu-name").val()) {
 		$.ajax({
 			dataType : "json",
@@ -232,7 +231,6 @@ function createnewmenu() {
 		$("#menu-name").focus();
 		return false;
 	}
-
 }
 
 

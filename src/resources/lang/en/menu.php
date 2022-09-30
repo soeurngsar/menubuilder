@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'menuBuilder' => 'Menu builder',
+    'addMenuItem' => 'Add menu item',
+    'createMenu' => 'Create menu',
+    'select' => 'Select',
+    'selectToEdit' => 'Select menu to edit',
+    'createNewMenu' => 'Create new menu',
+    'label' => 'Label',
+    'cssClass' => 'CSS class (optional)',
+    'url' => 'URL',
+    'delete' => 'Delete',
+    'deleteMenu' => 'Delete menu',
+    'updateItem' => 'Update item',
+    'close' => 'Close',
+    'customLink' => 'Custom link',
+    'internalLink' => 'Internal link',
+    'or' => 'Or',
+    'saveMenu' => 'Save menu',
+    'name' => 'Name',
+    'menuCreation' => 'Menu creation',
+    'menuCreationDescription' => 'Please enter the name and click "Create menu" button',
+    'menuStructure' => 'Menu structure',
+    'menuStructureDescription' => 'Place each item in the order you prefer by drag and drop. Click on the plus icon on the right of the item to display more configuration options.',
+];

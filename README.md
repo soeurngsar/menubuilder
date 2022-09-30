@@ -3,27 +3,17 @@
 forked from https://github.com/lordmacu/wmenu
 ![Laravel drag and drop menu for backpack](screenshot/menubuilder.png?raw=true)
 ### Note
-**This package is work perfectly with Backpack only**
+**This package is work perfectly with Backpack and require minimum version of 4.0**
 ### Installation
 1. Run
 ```php
 composer require soeurngsar/menubuilder
 ```
-***Step 2 & 3 are optional if you are using laravel 5.5***
-
-2. Add the following class, to "providers" array in the file config/app.php (optional on laravel 5.5)
-```php
-SoeurngSar\MenuBuilder\MenuServiceProvider::class,
-```
-3. add facade in the file config/app.php (optional on laravel 5.5)
-```php
-'Menu' => SoeurngSar\MenuBuilder\app\Facades\Menu::class,
-```
-4. Run publish
+2. Run publish assets
 ```php
 php artisan vendor:publish --provider="SoeurngSar\MenuBuilder\MenuServiceProvider"
 ```
-5. Configure (optional) in ***config/menu.php*** :
+3. Configure (optional) in ***config/menu.php*** :
 - ***CUSTOM MIDDLEWARE:*** You can add you own middleware
 - ***TABLE PREFIX:*** By default this package will create 2 new tables named "menus" and "menu_items" but you can still add your own table prefix avoiding conflict with existing table
 - ***TABLE NAMES*** If you want use specific name of tables you have to modify that and the migrations
@@ -94,5 +84,5 @@ you can edit the menu interface in ***resources/views/vendor/backpack/menu-build
 
  * [wmenu](https://github.com/lordmacu/wmenu) laravel package menu like wordpress
 
-### Compability
-* Tested with laravel 5.2, 5.3, 5.4, 5.5
+### Compatibility
+* Tested with laravel 8.0 with Backpack version 4.0

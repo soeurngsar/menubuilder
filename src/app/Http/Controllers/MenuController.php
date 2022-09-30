@@ -2,9 +2,8 @@
 
 namespace SoeurngSar\MenuBuilder\app\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use SoeurngSar\MenuBuilder\app\Facades\Menu;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use SoeurngSar\MenuBuilder\app\Models\Menus;
 use SoeurngSar\MenuBuilder\app\Models\MenuItems;
@@ -15,14 +14,20 @@ class MenuController extends Controller
     public function index(){
 
         $menuList = Menu::getAllMenu();
+        $routes = Route::getRoutes()->get('GET');
+        $routesList = array_filter($routes, function ($route) {
+            return strpos($route->uri, 'admin') !== 0;
+        });
+
         if(request()->has('menu')){
-          return view('vendor.menubuilder.menu-html',[
+          return view('wmenu::menu-html',[
             'menulist' => $menuList,
             'menus' => MenuItems::where('menu', request()->get('menu'))->orderBy('sort')->get(),
             'indmenu' => Menus::find(request()->get('menu')),
+            'routes' => $routesList,
           ]);
         }else{
-          return view('vendor.menubuilder.menu-html',[
+          return view('wmenu::menu-html',[
             'menulist' => $menuList,
           ]);
         }
@@ -31,11 +36,10 @@ class MenuController extends Controller
 
     public function createnewmenu()
     {
-
         $menu = new Menus();
         $menu->name = request()->input("menuname");
         $menu->save();
-        return json_encode(array("resp" => $menu->id));
+        return response()->json(array("resp" => $menu->id));
     }
 
     public function deleteitemmenu()
@@ -53,9 +57,9 @@ class MenuController extends Controller
             $menudelete = Menus::find(request()->input("id"));
             $menudelete->delete();
 
-            return json_encode(array("resp" => "you delete this item"));
+            return response()->json(array("resp" => "you delete this item"));
         } else {
-            return json_encode(array("resp" => "You have to delete all items first", "error" => 1));
+            return response()->json(array("resp" => "You have to delete all items first", "error" => 1));
 
         }
     }
@@ -99,7 +103,6 @@ class MenuController extends Controller
         $menu->save();
         if (is_array(request()->input("arraydata"))) {
             foreach (request()->input("arraydata") as $value) {
-
                 $menuitem = MenuItems::find($value["id"]);
                 $menuitem->parent = $value["parent"];
                 $menuitem->sort = $value["sort"];
@@ -107,7 +110,6 @@ class MenuController extends Controller
                 $menuitem->save();
             }
         }
-        echo json_encode(array("resp" => 1));
-
+        echo response()->json(array("resp" => 1));
     }
 }
