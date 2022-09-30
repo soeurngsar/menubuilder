@@ -18,7 +18,7 @@ php artisan vendor:publish --provider="SoeurngSar\MenuBuilder\MenuServiceProvide
 - ***TABLE PREFIX:*** By default this package will create 2 new tables named "menus" and "menu_items" but you can still add your own table prefix avoiding conflict with existing table
 - ***TABLE NAMES*** If you want use specific name of tables you have to modify that and the migrations
 - ***Custom routes*** If you want to edit the route path you can edit the field
-6. Run migrate
+4. Run migrate
 
  ```php
  php artisan migrate
@@ -58,7 +58,7 @@ $menuList = Menu::get(1);
 ```
 
 ### Get Menu Items By Menu Name
-In this example, you must have a menu named  *Admin*
+In this example, you must have a menu named  *Primary*
 
 ```php
 use SoeurngSar\MenuBuilder\app\Facades\Menu;
@@ -77,8 +77,6 @@ use SoeurngSar\MenuBuilder\app\Models\Menus;
 use SoeurngSar\MenuBuilder\app\Models\MenuItems;
 ```
 
-### Customization
-you can edit the menu interface in ***resources/views/vendor/backpack/menu-builder/menu-html.blade.php***
 
 ### Credits
 
